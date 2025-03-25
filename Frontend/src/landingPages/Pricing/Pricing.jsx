@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Hero from "./components/Hero";
+import Brokrage from "./components/Brokrage";
 
 const Pricing = () => {
   return (
-    <div>Pricing</div>
-  )
-}
+    <div>
+      <Hero />
+      <Brokrage />
+    </div>
+  );
+};
 
-export default Pricing
+export default Pricing;

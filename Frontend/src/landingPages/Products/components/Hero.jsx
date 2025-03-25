@@ -10,7 +10,7 @@ const Hero = () => {
         </p>
 
         <p>
-          Check out our
+          Check out our{" "}
           <span className="text-blue-500 cursor-pointer">
             investment offerings →
           </span>
