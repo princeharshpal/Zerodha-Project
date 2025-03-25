@@ -50,16 +50,20 @@ const Products = () => {
       },
     },
   ];
-  
+
   return (
     <>
       <Hero />
 
-      {contents.map((content, idx) => {
-        {
-          idx % 2 == 0 ? <RightSection /> : <LeftSection />;
-        }
-      })}
+      <div className="space-y-20 my-20">
+        {contents.map((content, idx) =>
+          idx % 2 === 0 ? (
+            <LeftSection key={idx} content={content} />
+          ) : (
+            <RightSection key={idx} content={content} />
+          )
+        )}
+      </div>
 
       <Universe />
     </>

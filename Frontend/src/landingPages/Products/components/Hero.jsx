@@ -11,11 +11,11 @@ const Hero = () => {
 
         <p>
           Check out our
-          <span className="text-blue-500">investment offerings →</span>
+          <span className="text-blue-500 cursor-pointer">
+            investment offerings →
+          </span>
         </p>
       </div>
-
-      
     </div>
   );
 };
