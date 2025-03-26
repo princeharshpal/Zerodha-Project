@@ -20,7 +20,7 @@ const WatchList = () => {
         <p className="text-gray-500 text-sm">{watchlist.length} / 50</p>
       </div>
 
-      <div>
+      <div className="w-full">
         {watchlist.map((stock, index) => (
           <WatchListItem stock={stock} key={index} />
         ))}
@@ -36,11 +36,11 @@ const WatchListItem = ({ stock }) => {
 
   return (
     <div
-      className="flex justify-between items-center border-b border-gray-300 p-4 hover:bg-gray-100 transition"
+      className="relative w-full flex justify-between items-center border-b border-gray-300 p-4 hover:bg-gray-100 transition"
       onMouseEnter={() => setShowActions(true)}
       onMouseLeave={() => setShowActions(false)}
     >
-      <div className="flex justify-around items-center">
+      <div className="w-full flex justify-between items-center">
         <div
           className={`font-medium ${
             stock.isDown ? "text-red-500" : "text-green-500"
@@ -49,7 +49,7 @@ const WatchListItem = ({ stock }) => {
           {stock.name}
         </div>
 
-        <div className="flex items-center space-x-2 text-gray-600">
+        <div className="flex items-center justify-between space-x-2 text-gray-600">
           <span className="text-sm">{stock.percent}</span>
 
           {stock.isDown ? (
@@ -69,7 +69,7 @@ const WatchListItem = ({ stock }) => {
 
 const WatchListActions = () => {
   return (
-    <div className="flex space-x-2">
+    <div className="flex space-x-2 absolute right-5">
       <button className="font-semibold px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 transition">
         B
       </button>
