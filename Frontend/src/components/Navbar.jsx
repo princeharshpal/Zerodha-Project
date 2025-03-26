@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { HiOutlineMenu } from "react-icons/hi";
 
 const Navbar = () => {
@@ -32,16 +32,24 @@ const Navbar = () => {
         <img className="h-5" src="/images/logo.svg" alt="logo" />
       </Link>
 
-      <div className="flex items-center gap-10 text-gray-500">
+      <nav className="flex items-center gap-10 text-gray-500">
         {navLinks.map((navLink, idx) => (
-          <Link key={idx} to={navLink.link}>
+          <NavLink
+            className={({ isActive }) =>
+              `${
+                isActive ? "text-blue-500 font-semibold" : "hover:text-blue-500"
+              }`
+            }
+            key={idx}
+            to={navLink.link}
+          >
             {navLink.label}
-          </Link>
+          </NavLink>
         ))}
         <span className="text-xl text-black cursor-pointer">
           <HiOutlineMenu />
         </span>
-      </div>
+      </nav>
     </div>
   );
 };
