@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import LeftSection from "../landingPages/Dashboard/components/components/LeftSection";
-import DashNavbar from "../landingPages/Dashboard/components/components/components/DashNavbar";
+import LeftSection from "../landingPages/Dashboard/LeftSection";
+import DashNavbar from "../landingPages/Dashboard/components/DashNavbar";
 
 const DashboardLayout = () => {
   return (
