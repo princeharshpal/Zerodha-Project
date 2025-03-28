@@ -19,16 +19,21 @@ const Hero = () => {
       text: "All direct mutual fund investments are absolutely free — ₹ 0 commissions & DP charges.",
     },
   ];
+
   return (
-    <div className="text-center my-20 space-y-5">
-      <h1 className="text-5xl font-semibold text-gray-700">Charges</h1>
+    <div className="text-center my-20 space-y-5 px-5 lg:px-0">
+      <h1 className="text-3xl lg:text-5xl font-semibold text-gray-700">
+        Charges
+      </h1>
 
-      <p className="text-gray-500 text-xl">List of all charges and taxes</p>
+      <p className="text-gray-500 text-lg lg:text-xl">
+        List of all charges and taxes
+      </p>
 
-      <div className="grid grid-cols-3 mt-28 gap-20">
-        {contents.map((content, idx) => {
-          return <PricingColumn key={idx} content={content} />;
-        })}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10 lg:mt-28 gap-10 lg:gap-20">
+        {contents.map((content, idx) => (
+          <PricingColumn key={idx} content={content} />
+        ))}
       </div>
     </div>
   );

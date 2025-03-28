@@ -55,7 +55,7 @@ const Products = () => {
     <>
       <Hero />
 
-      <div className="space-y-20 my-20">
+      <div className="space-y-16 my-10 lg:my-20 px-5 lg:px-0">
         {contents.map((content, idx) =>
           idx % 2 === 0 ? (
             <LeftSection key={idx} content={content} />

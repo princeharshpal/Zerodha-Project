@@ -10,34 +10,13 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const socialMedia = [
-    {
-      icon: <RiTwitterXLine />,
-      link: "",
-    },
-    {
-      icon: <BiLogoFacebookSquare />,
-      link: "",
-    },
-    {
-      icon: <PiInstagramLogo />,
-      link: "",
-    },
-    {
-      icon: <BiLogoLinkedin />,
-      link: "",
-    },
-    {
-      icon: <FaYoutube />,
-      link: "",
-    },
-    {
-      icon: <BiLogoWhatsapp />,
-      link: "",
-    },
-    {
-      icon: <FaTelegram />,
-      link: "",
-    },
+    { icon: <RiTwitterXLine />, link: "" },
+    { icon: <BiLogoFacebookSquare />, link: "" },
+    { icon: <PiInstagramLogo />, link: "" },
+    { icon: <BiLogoLinkedin />, link: "" },
+    { icon: <FaYoutube />, link: "" },
+    { icon: <BiLogoWhatsapp />, link: "" },
+    { icon: <FaTelegram />, link: "" },
   ];
 
   const impLinks = [
@@ -50,9 +29,9 @@ const Footer = () => {
         { link: "/refer", label: "Referral programme" },
         { link: "/careers", label: "Careers" },
         { link: "/tech", label: "Zerodha.tech" },
-        { link: "/open-source", label: "Open }source" },
+        { link: "/open-source", label: "Open source" },
         { link: "/press-media", label: "Press & media" },
-        { link: "/cares", label: "Zerodh Cares (CSR)" },
+        { link: "/cares", label: "Zerodha Cares (CSR)" },
       ],
     },
     {
@@ -73,7 +52,7 @@ const Footer = () => {
       heading: "Account",
       links: [
         { link: "/", label: "Fund transfer" },
-        { link: "/", lable: "Open an account" },
+        { link: "/", label: "Open an account" },
       ],
     },
   ];
@@ -98,68 +77,57 @@ const Footer = () => {
     "For investor's attention",
     "Investor charter",
   ];
+
   return (
-    <div className="w-full px-48 py-10 bg-gray-100 ">
-      <div className="grid grid-cols-4 mb-10">
+    <div className="w-full px-5 lg:px-48 py-10 bg-gray-100">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 mb-10">
         <div className="space-y-5">
           <img className="h-5" src="/images/logo.svg" alt="logo" />
-
           <div className="space-y-2 text-sm text-gray-500 font-normal">
             <p>© 2010 - 2025, Zerodha Broking Ltd.</p>
-
             <p>All rights reserved.</p>
           </div>
-
-          <p className="w-3/5 flex flex-wrap gap-5 text-2xl text-gray-500">
-            {socialMedia.map((app, idx) => {
-              return (
-                <Link className=" hover:text-blue-500" key={idx} to={app.link}>
-                  {app.icon}
-                </Link>
-              );
-            })}
-          </p>
+          <div className="flex flex-wrap gap-5 text-2xl text-gray-500">
+            {socialMedia.map((app, idx) => (
+              <Link className="hover:text-blue-500" key={idx} to={app.link}>
+                {app.icon}
+              </Link>
+            ))}
+          </div>
         </div>
 
-        {impLinks.map((content, idx) => {
-          return (
-            <div className="space-y-6" key={idx}>
-              <h2 className="text-xl text-gray-800 font-semibold">
-                {content.heading}
-              </h2>
-
-              <div className="flex flex-col space-y-3 text-gray-500 w-fit">
-                {content.links.map((link, idx) => {
-                  return (
-                    <Link
-                      className="hover:text-blue-500 text-lg"
-                      key={idx}
-                      to={link.link}
-                    >
-                      {link.label}
-                    </Link>
-                  );
-                })}
-              </div>
+        {impLinks.map((content, idx) => (
+          <div className="space-y-6" key={idx}>
+            <h2 className="text-xl text-gray-800 font-semibold">
+              {content.heading}
+            </h2>
+            <div className="flex flex-col space-y-3 text-gray-500">
+              {content.links.map((link, idx) => (
+                <Link
+                  className="hover:text-blue-500 text-lg"
+                  key={idx}
+                  to={link.link}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
 
       <div className="text-xs text-gray-500 space-y-2">
-        {footerPara.map((para, idx) => {
-          return <p key={idx}>{para}</p>;
-        })}
+        {footerPara.map((para, idx) => (
+          <p key={idx}>{para}</p>
+        ))}
       </div>
 
-      <div className="flex items-center w-full justify-center gap-5 mt-5 text-sm">
-        {bottemLinks.map((link, idx) => {
-          return (
-            <Link className="text-gray-500" key={idx}>
-              {link}
-            </Link>
-          );
-        })}
+      <div className="flex flex-wrap justify-center gap-5 mt-5 text-sm">
+        {bottemLinks.map((link, idx) => (
+          <Link className="text-gray-500" key={idx}>
+            {link}
+          </Link>
+        ))}
       </div>
     </div>
   );

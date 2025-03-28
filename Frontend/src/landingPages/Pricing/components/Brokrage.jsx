@@ -65,7 +65,6 @@ const Brokrage = () => {
         ],
       },
     ],
-    ,
     [
       {
         heading: "GST",
@@ -125,21 +124,20 @@ const Brokrage = () => {
       },
     ],
   ];
-  return (
-    <div className="mb-10">
-      <h2 className="text-2xl mb-10">Charges explained</h2>
 
-      <div className="grid grid-cols-2 space-y-3">
-        {textContents.map((column, idx) => {
-          return (
-            <div key={idx}>
-              <ChargesColumn
-                first={idx === 0 ? "first" : null}
-                contents={column}
-              />
-            </div>
-          );
-        })}
+  return (
+    <div className="mb-10 px-5 lg:px-0">
+      <h2 className="text-2xl lg:text-3xl mb-10">Charges explained</h2>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        {textContents.map((column, idx) => (
+          <div key={idx}>
+            <ChargesColumn
+              first={idx === 0 ? "first" : null}
+              contents={column}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

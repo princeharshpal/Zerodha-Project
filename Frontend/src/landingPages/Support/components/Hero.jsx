@@ -9,33 +9,34 @@ const Hero = () => {
     "Kite user manual",
   ];
   return (
-    <div className="w-full px-48 bg-[#387ed1] text-white">
-      <div className="flex items-center justify-between py-10 text-xl font-semibold">
+    <div className="w-full px-5 lg:px-48 bg-[#387ed1] text-white">
+      <div className="flex flex-col lg:flex-row justify-between py-6 lg:py-10 text-lg lg:text-xl font-semibold">
         <span>Support Portal</span>
-
-        <span>Track Tickets</span>
+        <span className="mt-2 lg:mt-0">Track Tickets</span>
       </div>
 
-      <div className="grid grid-cols-2 py-10">
-        <div className="space-y-8">
-          <h2 className="text-2xl">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 py-6 lg:py-10">
+        <div className="space-y-6 lg:space-y-8">
+          <h2 className="text-xl lg:text-2xl">
             Search for an answer or browse help topics to create a ticket
           </h2>
 
-          <div className="p-5 bg-white flex items-center justify-between rounded">
+          <div className="p-4 lg:p-5 bg-white flex items-center justify-between rounded">
             <input
-              className="text-black w-full text-lg focus:outline-none"
+              className="text-black w-full text-base lg:text-lg focus:outline-none"
               type="text"
-              placeholder="Eg: how do i activate F&O, why is my order getting rejected ."
+              placeholder="Eg: how do I activate F&O, why is my order getting rejected."
             />
-
-            <IoSearchOutline className="text-gray-600 text-2xl font-semibold" />
+            <IoSearchOutline className="text-gray-600 text-xl lg:text-2xl font-semibold" />
           </div>
 
-          <div className="flex gap-5 flex-wrap">
+          <div className="flex gap-3 lg:gap-5 flex-wrap">
             {searchLinks.map((link, idx) => {
               return (
-                <span className="pb-1 border-b-white border-b" key={idx}>
+                <span
+                  className="pb-1 border-b-white border-b text-sm lg:text-base"
+                  key={idx}
+                >
                   {link}
                 </span>
               );
@@ -43,12 +44,14 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="ml-10 space-y-3">
-          <h2 className="text-2xl">Featured</h2>
-
-          <p>1. Surveillance measure on scrips - March 2025</p>
-
-          <p>2. Current Takeovers and Delisting – March 2025</p>
+        <div className="space-y-2 lg:space-y-3">
+          <h2 className="text-xl lg:text-2xl">Featured</h2>
+          <p className="text-sm lg:text-base">
+            1. Surveillance measure on scrips - March 2025
+          </p>
+          <p className="text-sm lg:text-base">
+            2. Current Takeovers and Delisting – March 2025
+          </p>
         </div>
       </div>
     </div>

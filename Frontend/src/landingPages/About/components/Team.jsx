@@ -15,8 +15,8 @@ const Team = () => {
         People
       </h1>
 
-      <div className="grid grid-cols-2">
-        <div className="flex flex-col items-center gap-2">
+      <div className="grid lg:grid-cols-2 grid-cols-1">
+        <div className="flex flex-col items-center gap-2 mb-5">
           <div className="w-80 h-80 rounded-full overflow-hidden">
             <img src="/images/nithinKamath.jpg" alt="image" />
           </div>

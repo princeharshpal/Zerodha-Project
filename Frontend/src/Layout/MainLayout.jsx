@@ -2,15 +2,16 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../components/Footer";
-import OpenAccount from "../components/OpenAccount";
 
 const MainLayout = () => {
   const location = useLocation();
+  const isSupportPage = location.pathname === "/support";
+
   return (
     <div>
       <Navbar />
       <div
-        className={`${location.pathname === "/support" ? "w-full" : "mx-48 "}`}
+        className={isSupportPage ? "w-full" : "px-4 sm:px-6 md:px-8 lg:px-48"}
       >
         <Outlet />
       </div>

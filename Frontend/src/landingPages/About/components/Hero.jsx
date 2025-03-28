@@ -29,26 +29,25 @@ const Hero = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center py-20 font-semibold text-gray-700 border-b-2 border-gray-100">
-        {heroHeading.map((heading, idx) => {
-          return (
-            <h1 className="text-4xl" key={idx}>
-              {heading}
-            </h1>
-          );
-        })}
+      <div className="flex flex-col justify-center items-center py-16 font-semibold text-gray-700 border-b-2 border-gray-100 px-4 text-center lg:text-left">
+        {heroHeading.map((heading, idx) => (
+          <h1
+            className="text-2xl sm:text-3xl lg:text-4xl leading-snug"
+            key={idx}
+          >
+            {heading}
+          </h1>
+        ))}
       </div>
 
-      <div className="grid grid-cols-2 my-20 text-lg">
-        {paragraphs.map((para, idx) => {
-          return (
-            <div className="space-y-5 p-12 text-gray-700" key={idx}>
-              {para.texts.map((text, idx) => {
-                return <p key={idx}>{text}</p>;
-              })}
-            </div>
-          );
-        })}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 my-10 lg:my-20 text-lg px-5 lg:px-12">
+        {paragraphs.map((para, idx) => (
+          <div className="space-y-5 text-gray-700" key={idx}>
+            {para.texts.map((text, idx) => (
+              <p key={idx}>{text}</p>
+            ))}
+          </div>
+        ))}
       </div>
     </>
   );
