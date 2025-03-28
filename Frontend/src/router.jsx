@@ -18,6 +18,7 @@ import Holdings from "./landingPages/Dashboard/components/Holdings";
 import Positions from "./landingPages/Dashboard/components/Positions";
 import Funds from "./landingPages/Dashboard/components/Funds";
 import Apps from "./landingPages/Dashboard/components/Apps";
+import WatchlistContextProvider from "./components/Contexts/WatchlistContextProvider";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,7 +32,14 @@ const router = createBrowserRouter(
         <Route path="products" element={<Products />} />
       </Route>
 
-      <Route path="/dashboard" element={<DashboardLayout />}>
+      <Route
+        path="/dashboard"
+        element={
+          <WatchlistContextProvider>
+            <DashboardLayout />
+          </WatchlistContextProvider>
+        }
+      >
         <Route index element={<DashboardComponent />} />
         <Route path="orders" element={<Orders />} />
         <Route path="holdings" element={<Holdings />} />

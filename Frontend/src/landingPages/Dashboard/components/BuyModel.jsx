@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
+import { WatchlistContext } from "../../../components/Contexts/WatchlistContextProvider";
 
-const BuyModel = () => {
-  const inputs = ["qty.", "price"];
+const BuyModel = ({ uid }) => {
+  const { isBuyOpen, setBuyOpen } = useContext(WatchlistContext);
+
+  const inputs = ["qty", "price"];
+
   const [change, setChange] = useState({
     qty: "",
     price: "",
@@ -10,14 +14,22 @@ const BuyModel = () => {
 
   //   console.log(change);
 
-  const handleBuy = async () => {
+  const handleBuyclick = async () => {
     try {
-      await axios.post(`${import.meta.VITE_API_URL}/new-order`, {
-        name: "",
-        qty: change.qty,
-        price: change.price,
-        mode: "BUY",
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/new-order`,
+        {
+          name: uid,
+          qty: change.qty,
+          price: change.price,
+          mode: "BUY",
+        }
+      );
+      setBuyOpen(false);
+
+      console.log(res.data);
+
+      console.log(uid, change.qty, change.price, "BUY");
     } catch (error) {
       console.log(error);
     }
@@ -51,7 +63,7 @@ const BuyModel = () => {
         <p>Margin required 140.65 Rs</p>
 
         <button
-          onClick={handleBuy}
+          onClick={handleBuyclick}
           className="px-6 py-2 text-white bg-blue-400 hover:bg-blue-500 rounded-md cursor-pointer"
         >
           Buy
