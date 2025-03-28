@@ -4,6 +4,7 @@ import { FaChartBar, FaEllipsisH } from "react-icons/fa";
 import { RiDeleteBin7Line } from "react-icons/ri";
 
 import { watchlist } from "../Data/data";
+import BuyModel from "./BuyModel";
 
 const WatchList = () => {
   return (
@@ -68,27 +69,53 @@ const WatchListItem = ({ stock }) => {
 };
 
 const WatchListActions = () => {
+  const [isBuyOpen, setBuyOpen] = useState(false);
+
+  const [isSellOpen, setSellOpen] = useState(false);
+
+  const handleBuy = (e) => {
+    setBuyOpen(true);
+    console.log(e);
+  };
+
+  const handleSell = () => {
+    setSellOpen(true);
+  };
+
+  const handleDelete = () => {};
+
   return (
     <div className="flex space-x-2 absolute right-5">
-      <button className="font-semibold px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 transition">
+      <button
+        onClick={(e) => handleBuy(e)}
+        className="cursor-pointer font-semibold px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
+      >
         B
       </button>
 
-      <button className="font-semibold px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition">
+      <button
+        onClick={handleSell}
+        className="cursor-pointer font-semibold px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
+      >
         S
       </button>
 
-      <button className="px-3 py-1 bg-gray-300 text-black rounded-md hover:bg-gray-400 transition">
+      <button className="cursor-pointer px-3 py-1 bg-gray-300 text-black rounded-md hover:bg-gray-400 transition">
         <FaChartBar />
       </button>
 
-      <button className="px-3 py-1 bg-gray-300 text-black rounded-md hover:bg-gray-400 transition">
+      <button
+        onClick={handleDelete}
+        className="cursor-pointer px-3 py-1 bg-gray-300 text-black rounded-md hover:bg-gray-400 transition"
+      >
         <RiDeleteBin7Line />
       </button>
 
-      <button className="px-3 py-1 bg-gray-300 text-black rounded-md hover:bg-gray-400 transition">
+      <button className="cursor-pointer px-3 py-1 bg-gray-300 text-black rounded-md hover:bg-gray-400 transition">
         <FaEllipsisH />
       </button>
+
+      {isBuyOpen && <BuyModel isBuyOpen={isBuyOpen} />}
     </div>
   );
 };

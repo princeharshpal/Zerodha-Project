@@ -1,7 +1,26 @@
-import React from "react";
-import { positions } from "../Data/data";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Positions = () => {
+  const [positions, setPositions] = useState([]);
+
+  useEffect(() => {
+    const fetchPositions = async () => {
+      try {
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_URL}/allpositions`
+        );
+
+        // console.log(res.data);
+
+        setPositions(res.data);
+      } catch (error) {
+        console.error("Error fetching holdings:", error);
+      }
+    };
+    fetchPositions();
+  }, []);
+
   return (
     <div className="p-8 w-full">
       <h2 className="my-4 font-semibold">Positions ({positions.length})</h2>

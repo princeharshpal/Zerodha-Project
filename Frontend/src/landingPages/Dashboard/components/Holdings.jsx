@@ -1,10 +1,29 @@
-import React from "react";
-import { allHoldings } from "../Data/data";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Holdings = () => {
+  const [allHoldings, setAllHoldings] = useState([]);
+
+  useEffect(() => {
+    const fetchHoldings = async () => {
+      try {
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_URL}/allholdings`
+        );
+
+        // console.log(res.data);
+
+        setAllHoldings(res.data);
+      } catch (error) {
+        console.error("Error fetching holdings:", error);
+      }
+    };
+    fetchHoldings();
+  }, []);
+
   return (
     <div className="p-8 w-full">
-      <h2 className="my-4 font-semibold">Holdings({allHoldings.length})</h2>
+      <h2 className="my-4 font-semibold">Holdings ({allHoldings.length})</h2>
 
       <div className="overflow-x-auto text-sm mb-12">
         <table className="w-full border border-gray-300 text-center">
