@@ -16,8 +16,6 @@ import DashboardComponent from "./landingPages/Dashboard/components/DashboardCom
 import Orders from "./landingPages/Dashboard/components/Orders";
 import Holdings from "./landingPages/Dashboard/components/Holdings";
 import Positions from "./landingPages/Dashboard/components/Positions";
-import Funds from "./landingPages/Dashboard/components/Funds";
-import Apps from "./landingPages/Dashboard/components/Apps";
 import WatchlistContextProvider from "./components/Contexts/WatchlistContextProvider";
 
 const router = createBrowserRouter(
@@ -44,8 +42,6 @@ const router = createBrowserRouter(
         <Route path="orders" element={<Orders />} />
         <Route path="holdings" element={<Holdings />} />
         <Route path="positions" element={<Positions />} />
-        <Route path="funds" element={<Funds />} />
-        <Route path="apps" element={<Apps />} />
       </Route>
     </>
   )

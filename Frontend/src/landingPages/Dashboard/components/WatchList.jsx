@@ -38,7 +38,7 @@ const WatchList = () => {
   };
 
   return (
-    <div className="w-full bg-white text-sm">
+    <div className="w-full bg-white text-sm mb-10">
       <div className="flex items-center justify-between border-b border-gray-300 px-4 py-4">
         <input
           type="text"

@@ -10,8 +10,8 @@ const DashboardComponent = () => {
       <h2 className="text-lg text-gray-500">Equity</h2>
 
       <div className="w-ful border-b border-gray-300 mb-10">
-        <div className="grid grid-cols-2 w-3/4 text-xl  text-gray-500 py-14">
-          <div className="flex-col space-y-5 border-r-2 border-gray-300 flex items-center justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-full lg:w-3/4 text-xl  text-gray-500 py-14">
+          <div className="flex-col space-y-5 lg:border-r-2 border-gray-300 flex items-center justify-center">
             <p className="text-4xl">3.74k</p>
             <p className="text-xs">Margin available</p>
           </div>
@@ -30,9 +30,9 @@ const DashboardComponent = () => {
       <h2 className="text-lg text-gray-500">Holdings(13)</h2>
 
       <div className="w-full">
-        <div className="grid grid-cols-2 w-3/4 text-xl  text-gray-500 py-14">
-          <div className="flex-col space-y-5 border-r-2 border-gray-300 flex items-center justify-center">
-            <p className="flex items-center text-green-500">
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-full lg:w-3/4 text-xl text-gray-500 py-14">
+          <div className="flex-col space-y-5 lg:border-r-2 border-gray-300 flex items-center justify-center">
+            <p className="flex items-center justify-center text-green-500">
               <span className="text-4xl">1.55k</span>
               <span className="text-xs">+5.20%</span>
             </p>

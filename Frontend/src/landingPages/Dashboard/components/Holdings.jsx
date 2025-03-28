@@ -9,10 +9,8 @@ const Holdings = () => {
     const fetchHoldings = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_API_URL}/allholdings`
+          `${import.meta.env.VITE_API_URL}/dashboard/allholdings`
         );
-
-        // console.log(res.data);
 
         setAllHoldings(res.data);
       } catch (error) {
@@ -36,10 +34,10 @@ const Holdings = () => {
   };
 
   return (
-    <div className="p-8 w-full">
+    <div className="p-4 lg:p-8 w-full">
       <h2 className="my-4 font-semibold">Holdings ({allHoldings.length})</h2>
 
-      <div className="overflow-x-auto text-sm mb-12">
+      <div className="overflow-x-auto text-sm mb-6 lg:mb-12">
         <table className="w-full border border-gray-300 text-center">
           <thead>
             <tr className="border-b border-gray-300">
@@ -80,23 +78,23 @@ const Holdings = () => {
         </table>
       </div>
 
-      <div className="flex justify-around mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-10 mb-6 lg:mb-10">
         <div className="text-center">
-          <h5 className="text-xl font-semibold">
+          <h5 className="text-lg lg:text-xl font-semibold">
             29,875.<span className="text-sm">55</span>
           </h5>
           <p className="text-gray-500">Total investment</p>
         </div>
 
         <div className="text-center">
-          <h5 className="text-xl font-semibold">
+          <h5 className="text-lg lg:text-xl font-semibold">
             31,428.<span className="text-sm">95</span>
           </h5>
           <p className="text-gray-500">Current value</p>
         </div>
 
         <div className="text-center">
-          <h5 className="text-xl font-semibold text-green-500">
+          <h5 className="text-lg lg:text-xl font-semibold text-green-500">
             1,553.40 <span className="text-sm">( +5.20% )</span>
           </h5>
           <p className="text-gray-500">P&L</p>
