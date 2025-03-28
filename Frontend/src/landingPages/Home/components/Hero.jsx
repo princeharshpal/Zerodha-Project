@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div className="flex flex-col mt-12 items-center space-y-5 px-5 text-center lg:text-left">
       <img
-        className="w-4/5 lg:w-3/5"
+        className="w-full lg:w-3/4"
         src="/images/homeHero.png"
         alt="Home Hero"
       />

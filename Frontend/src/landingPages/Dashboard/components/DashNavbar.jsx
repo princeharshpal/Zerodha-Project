@@ -19,14 +19,14 @@ const DashNavbar = () => {
       link: "/dashboard/positions",
       label: "Positions",
     },
-    {
-      link: "/dashboard/funds",
-      label: "Funds",
-    },
-    {
-      link: "/dashboard/apps",
-      label: "Apps",
-    },
+    // {
+    //   link: "/dashboard/funds",
+    //   label: "Funds",
+    // },
+    // {
+    //   link: "/dashboard/apps",
+    //   label: "Apps",
+    // },
   ];
   return (
     <div className="sticky top-0 bg-white flex items-center justify-between pl-12 pr-5 border-b border-gray-300">
