@@ -2,11 +2,41 @@ import React, { useContext, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FaChartBar, FaEllipsisH } from "react-icons/fa";
 import { RiDeleteBin7Line } from "react-icons/ri";
-import { WatchlistContext } from "../../../components/Contexts/WatchlistContextProvider"; 
+import { WatchlistContext } from "../../../components/Contexts/WatchlistContextProvider";
 import BuyModel from "./BuyModel";
 import { watchlist } from "../Data/data";
+import { DoughnutGraph } from "./DoughnutGrapg";
 
 const WatchList = () => {
+  const labels = watchlist.map((stock) => stock.name);
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Price",
+        data: watchlist.map((stock) => stock.price),
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.5)",
+          "rgba(54, 162, 235, 0.5)",
+          "rgba(255, 206, 86, 0.5)",
+          "rgba(75, 192, 192, 0.5)",
+          "rgba(153, 102, 255, 0.5)",
+          "rgba(255, 159, 64, 0.5)",
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
   return (
     <div className="w-full bg-white text-sm">
       <div className="flex items-center justify-between border-b border-gray-300 px-4 py-4">
@@ -17,13 +47,17 @@ const WatchList = () => {
           placeholder="Search eg: INFY, BSE, NIFTY..."
           className="min-w-[80%] focus:outline-none"
         />
+
         <p className="text-gray-500 text-sm">{watchlist.length} / 50</p>
       </div>
-      <div className="w-full">
+
+      <div className="w-full mb-10">
         {watchlist.map((stock, index) => (
           <WatchListItem stock={stock} key={index} />
         ))}
       </div>
+
+      <DoughnutGraph data={data} />
     </div>
   );
 };

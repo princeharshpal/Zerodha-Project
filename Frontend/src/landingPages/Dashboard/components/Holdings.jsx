@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { VerticalGraph } from "./VerticalGraph";
 
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
@@ -20,6 +21,19 @@ const Holdings = () => {
     };
     fetchHoldings();
   }, []);
+
+  const labels = allHoldings.map((stock) => stock.name);
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Stock price",
+        data: allHoldings.map((stock) => stock.price),
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  };
 
   return (
     <div className="p-8 w-full">
@@ -66,7 +80,7 @@ const Holdings = () => {
         </table>
       </div>
 
-      <div className="flex justify-around">
+      <div className="flex justify-around mb-10">
         <div className="text-center">
           <h5 className="text-xl font-semibold">
             29,875.<span className="text-sm">55</span>
@@ -88,6 +102,8 @@ const Holdings = () => {
           <p className="text-gray-500">P&L</p>
         </div>
       </div>
+
+      <VerticalGraph data={data} />
     </div>
   );
 };
