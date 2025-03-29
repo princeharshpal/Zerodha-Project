@@ -28,9 +28,6 @@ project-root/
 │   │   ├── pages/
 │   │   ├── App.js
 │   │   ├── index.js
-│
-│── .gitignore
-│── package.json
 │── README.md
 ```
 
